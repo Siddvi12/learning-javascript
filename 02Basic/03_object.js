@@ -42,11 +42,17 @@ console.log(JsUser);
 //  function ko variabe ki trah treat kr skte hai 
 // adding a function  in my object 
 JsUser.greeting = function(){
-    console.log("hello there");
+    console.log(`hello there`);
 }
 
+console.log(JsUser.greeting());
 console.log(JsUser.greeting);
-// console.log(JsUser.greeting());
+
+JsUser.greeting2 = function(){
+    //this refer same object here
+    console.log(`hello there ${this.name}`);
+}
+console.log(JsUser.greeting2());
 
 // start from here next
 
