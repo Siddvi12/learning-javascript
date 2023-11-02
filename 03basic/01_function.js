@@ -92,3 +92,5 @@ function returnsecondvalue(getarray) {
 }
 console.log(returnsecondvalue(myarr));
 console.log(returnsecondvalue([200, 500, 400, 850]));
+
+
