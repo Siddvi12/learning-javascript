@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>chai aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const sayDate = function () {
+      console.log("vikash", Date.now());
+    };
+    // ye 1sec me baar baar print krega
+
+    // how to stop
+
+    // const intervalId = setInterval(sayDate, 1000);
+
+    let intervalId;
+    document.querySelector("#start").addEventListener("click", function () {
+        //yha se setinterval ka access lena padega aur globl scope me dalnma padega
+      intervalId= setInterval(sayDate, 1000);
+      console.log("started");
+    });
+
+    document.querySelector("#stop").addEventListener("click", function () {
+    // const intervalId = setInterval(sayDate, 1000);
+
+      clearInterval(intervalId);
+      console.log("stoped");
+    });
+  </script>
+</html>

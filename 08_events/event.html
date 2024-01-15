@@ -1,0 +1,120 @@
+<<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htnml Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // events
+    // document.getElementById('owl').onclick = function(){
+    //     alert("qwl click")
+    // }
+
+    // best aproch for now to events using addeventlisterner
+
+    //yha function me "e" argument ku hai lets find out
+    //ye bahut saara event hai we can see by using consolelog(e) in browser
+    //type, timestamp, defaultprevented,
+    //target, toElements, srcElements, currentTarget all in e
+    // clientX, clientY, screenX, screenY
+    //altkey,ctrlkey,shiftkey, keycode
+    // yha false likh sakte hai aur nhi bhi but generally nhi likhte and ku likhte hai?
+    //
+
+    // attatchEvent for e-explorer
+    // jquary - on
+    document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        // console.log("clicked on owl");
+        // alert("owl clicked");
+        e.stopPropagation(); // ye yha rokne k liye ki bubble ho k upar na jaye aur event yhi ruk jaye
+      },
+      false
+    );
+
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        // console.log("clicked on ul");
+      },
+      false
+    );
+
+    // what isevent propogation and event bublling and event capturing
+    // in bubling we give false and it goes inside to outside
+    // and in capturing exact ulta hota hai we give trure and gose outside to inside on event listener
+
+    document.getElementById("google").addEventListener(
+      "click",
+      function (e) {
+        console.log("google clicked");
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      false
+    );
+
+
+    document.querySelector('#images').addEventListener('click',function(e){
+            console.log(e);
+            let removeIt =(e.target.parentNode);
+            removeIt.remove(); // remove on click
+    },false)
+
+
+  </script>
+</html>
