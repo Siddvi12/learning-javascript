@@ -64,6 +64,60 @@ promisesFour
   .catch(function (error) {
     console.log("error");
   })
-  .finally(function(){
-     console.log("finally resolove or rejected");
+  .finally(function () {
+    console.log("finally resolove or rejected");
   });
+
+// promises 5
+
+const promiseFive = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    let error = false;
+    if (!error) {
+      resolve({ username: "js", password: "12" });
+    } else {
+      reject("ERROR: js went wrong");
+    }
+  }, 1000);
+});
+// async await directly error handle nhi krti
+// uske liye hum try catch use krte hai
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+
+    console.log(response);
+  } catch (error) {
+    console.log("error");
+  }
+}
+consumePromiseFive();
+
+// example
+// yha time le rha hai api call pending
+async function getAllUsers() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    // yha double await kiya hai kuki yha bhi time lgta hais
+    // console.log(data);
+  } catch (error) {
+    console.log("e:error");
+  }
+}
+getAllUsers();
+
+// .then .catch format  example
+const response = fetch("https://jsonplaceholder.typicode.com/users").then(
+  (res) => {
+    return res.json();
+  }
+).then((datares)=>{
+  console.log(datares);
+})
+.catch((error)=>{
+  console.log(error);
+});
+
+// why we are getting async await data in last but .then method ohle return ho rha hai
+// in next lecture
