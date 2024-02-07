@@ -108,16 +108,17 @@ async function getAllUsers() {
 getAllUsers();
 
 // .then .catch format  example
-const response = fetch("https://jsonplaceholder.typicode.com/users").then(
-  (res) => {
+const response = fetch("https://jsonplaceholder.typicode.com/users")
+  .then((res) => {
     return res.json();
-  }
-).then((datares)=>{
-  console.log(datares);
-})
-.catch((error)=>{
-  console.log(error);
-});
+  })
+  .then((datares) => {
+    console.log(datares);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-// why we are getting async await data in last but .then method ohle return ho rha hai
+// why we are getting async await data in last but .then method phle return ho rha hai
 // in next lecture
+// featch is uniqe // micro task q or priority q
